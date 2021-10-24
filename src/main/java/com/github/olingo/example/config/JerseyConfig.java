@@ -35,17 +35,17 @@ public class JerseyConfig extends ResourceConfig {
                         register(c);
                     }
                 });
-        register(new AdminServiceRootLocator(serviceFactory));
+        register(new ODataServiceRootLocator(serviceFactory));
         register(new EntityManagerFilter(entityManagerFactory));
     }
 
     @Path("/")
-    public static class AdminServiceRootLocator extends ODataRootLocator {
+    public static class ODataServiceRootLocator extends ODataRootLocator {
 
         private OdataJpaServiceFactory serviceFactory;
 
         @Inject
-        public AdminServiceRootLocator (OdataJpaServiceFactory serviceFactory) {
+        public ODataServiceRootLocator (OdataJpaServiceFactory serviceFactory) {
             this.serviceFactory = serviceFactory;
         }
 
