@@ -46,7 +46,6 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
         }
         try {
             Object readEntity = jpaProcessor.process(uriParserResultView);
-
             response = responseBuilder.build(uriParserResultView, readEntity, contentType);
         } finally {
             this.close();
@@ -57,21 +56,14 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
     @Override
     public ODataResponse createEntity(final PostUriInfo uriParserResultView, final InputStream content, final String requestContentType, final String contentType) throws ODataJPAModelException, ODataJPARuntimeException, ODataNotFoundException, EdmException, EntityProviderException {
         logger.info("POST: Entity {} called", uriParserResultView.getTargetEntitySet().getName());
-      /*  ODataResponse response = null;
+        ODataResponse response = null;
         try {
-            Object createdEntity = jpaProcessor.process(uriParserResultView, inputStream2, requestContentType);
-            if (createdEntity.getClass().equals(Event.class)) {
-                response = postProcessCreateEvent(createdEntity, uriParserResultView, contentType);
-            } else if (createdEntity.getClass().equals(FactText.class)) {
-                response = postProcessCreateFactText(createdEntity, uriParserResultView, contentType);
-            } else {
-                response = responseBuilder.build(uriParserResultView, createdEntity, contentType);
-            }
+            Object createdEntity = jpaProcessor.process(uriParserResultView, content, requestContentType);
+            response = responseBuilder.build(uriParserResultView, createdEntity, contentType);
         } finally {
             this.close();
         }
-        return response;*/
-        return null;
+        return response;
     }
 
 
@@ -96,9 +88,8 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
         ODataResponse oDataResponse = null;
         try {
             this.oDataJPAContext.setODataContext(this.getContext());
-            Object deletedObj = this.jpaProcessor.process(uriParserResultView, contentType);
-            oDataResponse = this.responseBuilder.build(uriParserResultView, deletedObj);
-
+            Object deletedEntity = this.jpaProcessor.process(uriParserResultView, contentType);
+            oDataResponse = this.responseBuilder.build(uriParserResultView, deletedEntity);
         } finally {
             this.close();
         }
