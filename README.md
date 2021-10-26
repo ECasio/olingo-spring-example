@@ -1,6 +1,13 @@
 # olingo-spring-example
 
-you can run this app locally by executing the command 'mvn spring-boot:run' in the terminal of the project folder.
+What you find here is a working example of an olingo spring application.
+
+You can run this app locally by executing the command 'mvn spring-boot:run' in the terminal of the project folder.
+
+Using Postman you can then call the URL localhost:8080/odata/$metadata to fetch the metadata:
+
+![image](https://user-images.githubusercontent.com/19994604/138900236-f6ba4cca-c3e4-49ea-97c3-e80e5835aa7d.png)
+
 
 
 ## Entity Relation Model
