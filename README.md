@@ -1,5 +1,9 @@
 # olingo-spring-example
 
+## Blog 
+
+First part of the blog can be found here: https://blogs.sap.com/2021/10/29/building-an-odata-service-with-a-spring-java-application-using-olingo-part-i/
+
 What you find here is a working example of an olingo spring application.
 
 You can run this app locally by executing the command 'mvn spring-boot:run' in the terminal of the project folder.
