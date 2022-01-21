@@ -2,7 +2,7 @@
 
 ## Blog 
 
-Whole step by step description of the blog can be found here
+Whole step by step description from the blog can be found here
 - First part: https://blogs.sap.com/2021/10/29/building-an-odata-service-with-a-spring-java-application-using-olingo-part-i/
 - Second part: https://blogs.sap.com/2022/01/17/building-an-odata-service-with-a-spring-java-application-using-olingo-part-ii/
 
