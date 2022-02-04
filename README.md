@@ -1,4 +1,4 @@
-# olingo-spring-example
+# Olingo Spring-Boot Example
 
 ## Blog 
 
