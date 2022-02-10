@@ -1,4 +1,4 @@
-# Olingo Spring-Boot Example
+# A Java OData Service Example
 
 ## Blog 
 
