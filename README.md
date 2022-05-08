@@ -22,3 +22,15 @@ Using Postman you can then call the URL localhost:8080/odata/$metadata to fetch 
 The entity relation model I use for the example is a simple one:
 
 ![2021-10-18_10-26-06](https://user-images.githubusercontent.com/19994604/138327882-76404655-f383-46e6-82af-677560b5ccee.png)
+
+
+## Payloads
+
+It's important that you send the payload in the correct format:
+
+<img width="1015" alt="image" src="https://user-images.githubusercontent.com/19994604/167310946-febc1bc1-e898-4d31-aa94-efb423e69d1d.png">
+
+if you then call the Mothers(1) entity, you'll also get a positive result back:
+
+<img width="1015" alt="image" src="https://user-images.githubusercontent.com/19994604/167310988-142c61c2-49ab-487d-927e-0f6edd1e6376.png">
+
