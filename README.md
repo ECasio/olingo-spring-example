@@ -11,7 +11,7 @@ Whole step by step description from the blog can be found here
 
 What you find here is a working example of an olingo spring application.
 
-You can run this app locally by executing the command 'mvn spring-boot:run' in the terminal of the project folder.
+You can run this app locally by executing the command **'mvn spring-boot:run'** in the terminal of the project folder.
 
 Using Postman you can then call the URL localhost:8080/odata/$metadata to fetch the metadata:
 
