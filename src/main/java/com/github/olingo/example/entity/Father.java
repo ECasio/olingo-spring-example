@@ -1,9 +1,8 @@
 package com.github.olingo.example.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,9 +10,22 @@ import java.util.Objects;
 public class Father {
     @Id
     @GeneratedValue
+    @Column(name = "ID", nullable = false)
     private Long id;
 
     private String name;
+
+    @OneToMany
+    @JoinColumn(name = "FATHER_ID")
+    private List<Child> childList = new ArrayList<Child>();
+
+    public List<Child> getChildList() {
+        return childList;
+    }
+
+    public void setChildList(List<Child> childList) {
+        this.childList = childList;
+    }
 
     public Long getId() {
         return id;
