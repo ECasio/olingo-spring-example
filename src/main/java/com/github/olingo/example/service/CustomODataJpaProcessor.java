@@ -20,16 +20,9 @@ import java.util.List;
 public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
-    private final MotherStorage motherStorage;
-    private final FatherStorage fatherStorage;
-    private final ChildStorage childStorage;
 
-    public CustomODataJpaProcessor(ODataJPAContext oDataJPAContext, MotherStorage motherStorage, FatherStorage fatherStorage, ChildStorage childStorage) {
+    public CustomODataJpaProcessor(ODataJPAContext oDataJPAContext) {
         super(oDataJPAContext);
-        this.motherStorage = motherStorage;
-        this.fatherStorage = fatherStorage;
-        this.childStorage = childStorage;
-
     }
 
     @Override

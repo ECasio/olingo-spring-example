@@ -1,9 +1,6 @@
 package com.github.olingo.example.service;
 
 import com.github.olingo.example.config.JerseyConfig;
-import com.github.olingo.example.entity.ChildStorage;
-import com.github.olingo.example.entity.FatherStorage;
-import com.github.olingo.example.entity.MotherStorage;
 import org.apache.olingo.odata2.api.ODataService;
 import org.apache.olingo.odata2.api.ODataServiceFactory;
 import org.apache.olingo.odata2.api.edm.provider.EdmProvider;
@@ -24,15 +21,6 @@ public class CustomODataServiceFactory extends ODataServiceFactory {
     private ODataJPAContext oDataJPAContext;
     private ODataContext oDataContext;
 
-    @Autowired
-    private ChildStorage childStorage;
-
-    @Autowired
-    private FatherStorage fatherStorage;
-
-    @Autowired
-    private MotherStorage motherStorage;
-
     @Override
     public final ODataService createService(final ODataContext context) throws ODataException {
         oDataContext = context;
@@ -48,10 +36,7 @@ public class CustomODataServiceFactory extends ODataServiceFactory {
         }
 
         ODataSingleProcessor oDataSingleProcessor = new CustomODataJpaProcessor(
-                oDataJPAContext,
-                motherStorage,
-                fatherStorage,
-                childStorage
+                oDataJPAContext
                 );
 
 
