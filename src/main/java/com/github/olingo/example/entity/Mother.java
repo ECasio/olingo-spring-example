@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name="MOTHER")
+@Table(name = "MOTHER")
 public class Mother {
 
     @Id
@@ -15,6 +15,8 @@ public class Mother {
     private Long id;
 
     private String name;
+
+    private String surname;
 
     public Long getId() {
         return id;
@@ -44,5 +46,13 @@ public class Mother {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

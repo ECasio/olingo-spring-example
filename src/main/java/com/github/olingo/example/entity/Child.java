@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name="CHILD")
+@Table(name = "CHILD")
 public class Child {
     @EmbeddedId
     private ChildPK childPK = new ChildPK();
@@ -19,7 +19,10 @@ public class Child {
 
     private String name;
 
-    public Child() {}
+    private String surname;
+
+    public Child() {
+    }
 
     public Child(Father father, Mother mother) {
         this.childPK = new ChildPK(father, mother);
@@ -71,5 +74,13 @@ public class Child {
     @Override
     public int hashCode() {
         return Objects.hash(childPK, father, mother, name);
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

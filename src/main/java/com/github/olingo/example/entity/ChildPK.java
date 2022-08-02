@@ -17,7 +17,7 @@ public class ChildPK implements Serializable {
     public ChildPK() {
     }
 
-    public  ChildPK(Father father, Mother mother) {
+    public ChildPK(Father father, Mother mother) {
         this.fatherId = father.getId();
         this.motherId = mother.getId();
     }

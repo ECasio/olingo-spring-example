@@ -1,5 +1,6 @@
 package com.github.olingo.example.service;
 
+import com.github.olingo.example.entity.*;
 import org.apache.olingo.odata2.api.edm.EdmException;
 import org.apache.olingo.odata2.api.ep.EntityProviderException;
 import org.apache.olingo.odata2.api.exception.ODataException;
@@ -22,7 +23,6 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
 
     public CustomODataJpaProcessor(ODataJPAContext oDataJPAContext) {
         super(oDataJPAContext);
-
     }
 
     @Override
@@ -56,16 +56,21 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
     @Override
     public ODataResponse createEntity(final PostUriInfo uriParserResultView, final InputStream content, final String requestContentType, final String contentType) throws ODataJPAModelException, ODataJPARuntimeException, ODataNotFoundException, EdmException, EntityProviderException {
         logger.info("POST: Entity {} called", uriParserResultView.getTargetEntitySet().getName());
+        logger.info("logging key parameter"/*uriParserResultView.getKeyPredicates().get(1).getLiteral()*/);
+        logger.info(uriParserResultView.toString());
         ODataResponse response = null;
         try {
             Object createdEntity = jpaProcessor.process(uriParserResultView, content, requestContentType);
-            response = responseBuilder.build(uriParserResultView, createdEntity, contentType);
+            if (createdEntity.getClass().equals(Child.class)) {
+                response = postProcessCreateChild(createdEntity, uriParserResultView, contentType);
+            } else {
+                response = responseBuilder.build(uriParserResultView, createdEntity, contentType);
+            }
         } finally {
             this.close();
         }
         return response;
     }
-
 
 
     @Override
@@ -94,6 +99,20 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
             this.close();
         }
         return oDataResponse;
+    }
+
+    private ODataResponse postProcessCreateChild(Object createdEntity, PostUriInfo uriParserResultView, String contentType) throws ODataJPARuntimeException, ODataNotFoundException {
+        Child child = (Child) createdEntity;
+        if (child.getSurname() == null || child.getSurname().equalsIgnoreCase("")) {
+            if (child.getMother().getSurname() != null && !child.getMother().getSurname().equalsIgnoreCase("")) {
+                child.setSurname(child.getMother().getSurname());
+            } else if (child.getMother().getSurname() != null && !child.getFather().getSurname().equalsIgnoreCase("")) {
+                child.setSurname(child.getFather().getSurname());
+            } else {
+                child.setSurname("Gashi");
+            }
+        }
+        return responseBuilder.build(uriParserResultView, createdEntity, contentType);
     }
 
 }

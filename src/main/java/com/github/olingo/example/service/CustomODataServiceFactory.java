@@ -20,7 +20,6 @@ public class CustomODataServiceFactory extends ODataServiceFactory {
     private ODataJPAContext oDataJPAContext;
     private ODataContext oDataContext;
 
-
     @Override
     public final ODataService createService(final ODataContext context) throws ODataException {
         oDataContext = context;
@@ -36,7 +35,8 @@ public class CustomODataServiceFactory extends ODataServiceFactory {
         }
 
         ODataSingleProcessor oDataSingleProcessor = new CustomODataJpaProcessor(
-                oDataJPAContext);
+                oDataJPAContext
+        );
 
 
         EdmProvider edmProvider = accessFactory.createJPAEdmProvider(oDataJPAContext);
