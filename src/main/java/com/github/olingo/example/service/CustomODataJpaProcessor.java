@@ -56,8 +56,6 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
     @Override
     public ODataResponse createEntity(final PostUriInfo uriParserResultView, final InputStream content, final String requestContentType, final String contentType) throws ODataJPAModelException, ODataJPARuntimeException, ODataNotFoundException, EdmException, EntityProviderException {
         logger.info("POST: Entity {} called", uriParserResultView.getTargetEntitySet().getName());
-        logger.info("logging key parameter"/*uriParserResultView.getKeyPredicates().get(1).getLiteral()*/);
-        logger.info(uriParserResultView.toString());
         ODataResponse response = null;
         try {
             Object createdEntity = jpaProcessor.process(uriParserResultView, content, requestContentType);
