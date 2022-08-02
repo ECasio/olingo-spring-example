@@ -15,6 +15,8 @@ public class Father {
 
     private String name;
 
+    private String surname;
+
     public Long getId() {
         return id;
     }
@@ -45,4 +47,11 @@ public class Father {
         return Objects.hash(id, name);
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }

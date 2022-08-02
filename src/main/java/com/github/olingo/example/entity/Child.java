@@ -19,6 +19,8 @@ public class Child {
 
     private String name;
 
+    private String surname;
+
     public Child() {}
 
     public Child(Father father, Mother mother) {
@@ -71,5 +73,13 @@ public class Child {
     @Override
     public int hashCode() {
         return Objects.hash(childPK, father, mother, name);
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }
