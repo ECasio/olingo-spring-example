@@ -11,7 +11,6 @@ import org.apache.olingo.odata2.jpa.processor.api.ODataJPAContext;
 import org.apache.olingo.odata2.jpa.processor.api.exception.ODataJPARuntimeException;
 import org.apache.olingo.odata2.jpa.processor.api.factory.ODataJPAAccessFactory;
 import org.apache.olingo.odata2.jpa.processor.api.factory.ODataJPAFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
