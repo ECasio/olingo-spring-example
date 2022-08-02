@@ -61,8 +61,6 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
         ODataResponse response = null;
         try {
             Object createdEntity = jpaProcessor.process(uriParserResultView, content, requestContentType);
-            //  response = responseBuilder.build(uriParserResultView, createdEntity, contentType);
-
             if (createdEntity.getClass().equals(Child.class)) {
                 response = postProcessCreateChild(createdEntity, uriParserResultView, contentType);
             } else {
@@ -105,10 +103,10 @@ public class CustomODataJpaProcessor extends ODataJPADefaultProcessor {
 
     private ODataResponse postProcessCreateChild(Object createdEntity, PostUriInfo uriParserResultView, String contentType) throws ODataJPARuntimeException, ODataNotFoundException {
         Child child = (Child) createdEntity;
-        if (child.getSurname() == null || child.getSurname().equalsIgnoreCase("") ) {
+        if (child.getSurname() == null || child.getSurname().equalsIgnoreCase("")) {
             if (child.getMother().getSurname() != null && !child.getMother().getSurname().equalsIgnoreCase("")) {
                 child.setSurname(child.getMother().getSurname());
-            } else if (child.getMother().getSurname() != null && !child.getFather().getSurname().equalsIgnoreCase("") ) {
+            } else if (child.getMother().getSurname() != null && !child.getFather().getSurname().equalsIgnoreCase("")) {
                 child.setSurname(child.getFather().getSurname());
             } else {
                 child.setSurname("Gashi");

@@ -36,7 +36,7 @@ public class CustomODataServiceFactory extends ODataServiceFactory {
 
         ODataSingleProcessor oDataSingleProcessor = new CustomODataJpaProcessor(
                 oDataJPAContext
-                );
+        );
 
 
         EdmProvider edmProvider = accessFactory.createJPAEdmProvider(oDataJPAContext);

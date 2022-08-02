@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name="CHILD")
+@Table(name = "CHILD")
 public class Child {
     @EmbeddedId
     private ChildPK childPK = new ChildPK();
@@ -21,7 +21,8 @@ public class Child {
 
     private String surname;
 
-    public Child() {}
+    public Child() {
+    }
 
     public Child(Father father, Mother mother) {
         this.childPK = new ChildPK(father, mother);
