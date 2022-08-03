@@ -5,6 +5,7 @@
 Whole step by step description from the blog can be found here
 - [Building an OData Service with a Spring Java Application using Olingo – Part I](https://blogs.sap.com/2021/10/29/building-an-odata-service-with-a-spring-java-application-using-olingo-part-i/)
 - [Building an OData Service with a Spring Java Application using Olingo – Part II](https://blogs.sap.com/2022/01/17/building-an-odata-service-with-a-spring-java-application-using-olingo-part-ii/)
+- [Building an OData Service with a Spring-Boot Java Application using Olingo – Part III (Payloads and Custom Logic)](https://blogs.sap.com/2022/08/02/building-an-odata-service-with-a-spring-boot-java-application-using-olingo-part-iii-payloads-and-custom-logic/)
 
 
 ## How to run this application
